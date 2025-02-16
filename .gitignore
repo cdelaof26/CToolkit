@@ -1,9 +1,10 @@
 # OS
 *.DS_Store
 
-# Directories
+# Project
 cmake-build-debug
 .idea
+CMakeLists.txt
 
 # Executables
 t

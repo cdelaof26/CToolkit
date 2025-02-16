@@ -4,8 +4,8 @@
  * This code defines a String type with functions to manipulate and extract
  * information from these.
  */
-#ifndef STR_H
-#define STR_H
+#ifndef CTOOLKIT_STR_H
+#define CTOOLKIT_STR_H
 
 #include <stdlib.h>
 #include <stdarg.h>
@@ -21,7 +21,7 @@ unsigned int len(const char * d);
 unsigned int initCopy(char ** dest, char * source);
 void copy(char * dest, unsigned int destLength, const char * source, unsigned int sourceLength);
 
-void unlink(str * s);
+void unlinkStr(str * s);
 int initStrL(str * s, unsigned int length);
 int initStrS(str * s, char * d);
 int appendChar(str * s, char c);
@@ -33,4 +33,4 @@ str concatStr(unsigned int num, ...);
 str repeatStr(str * s, unsigned int n);
 int findChar(str * s, char c, int offset);
 
-#endif // STR_H
+#endif // CTOOLKIT_STR_H

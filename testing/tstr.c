@@ -14,7 +14,7 @@ int main() {
     printf("%s : length %d\n", s1.text, s1.length);
 
     // Remove from memory
-    unlink(&s1);
+    unlinkStr(&s1);
 
     // Initialize str with a length
     succeed = initStrL(&s1, 10);
@@ -46,6 +46,11 @@ int main() {
 
     printf("Index of 't' in \"%s\": %d\n", s1.text, findChar(&s1, 't', 0));
     printf("Index of 'z' in \"%s\": %d\n", s1.text, findChar(&s1, 'z', 0)); // Should be -1
+
+    unlinkStr(&s1);
+    unlinkStr(&s2);
+    unlinkStr(&s3);
+    unlinkStr(&s4);
 
     return 0;
 }

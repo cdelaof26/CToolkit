@@ -60,20 +60,19 @@ void copy(char * dest, unsigned int destLength, const char * source, unsigned in
 /**
  * Frees the internal char array and sets the len to 0.
  * Use initStrL or initStrS to reuse s.
+ * Note: do NOT use with non-initialized strings as freeing a empty pointer might cause problems
  *
  * @param s the string to remove from memory
  */
-void unlink(str * s) {
+void unlinkStr(str * s) {
     s -> length = 0;
-    if (s -> text == NULL)
-        return;
-
-    free(s -> text);
+    if (s -> text != NULL)
+        free(s -> text);
 }
 
 /**
  * Initializes an string making it usable given an initial length.
- * Do NOT use with initialized str, use unlink(str *) instead.
+ * Do NOT use with initialized str, use unlinkStr(str *) instead.
  *
  * @param s the pointer
  * @param length the new initial len
@@ -92,7 +91,7 @@ int initStrL(str * s, const unsigned int length) {
 /**
  * Initializes an string making it usable given a initial char array,
  * the char array will be copied.
- * Do NOT use with initialized str, use unlink(str *) instead.
+ * Do NOT use with initialized str, use unlinkStr(str *) instead.
  * Note: the char array NEEDS TO HAVE the end terminator null (\0).
  *
  * @param s the pointer
@@ -201,7 +200,7 @@ str concatStr(unsigned int num, ...) {
 
     va_end(args);
 
-    unlink(&concat);
+    unlinkStr(&concat);
     if (!initStrL(&concat, totalLength))
         return concat;
 

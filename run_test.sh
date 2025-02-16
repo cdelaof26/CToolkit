@@ -10,4 +10,9 @@ if [ ! -d "$1" ]; then
     exit 1
 fi
 
+if [ "$1" = "node" ]; then
+    gcc testing/t$1.c $1/*.c str/*.c -o t && ./t
+    exit 0
+fi
+
 gcc testing/t$1.c $1/*.c -o t && ./t
