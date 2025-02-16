@@ -1,0 +1,9 @@
+# OS
+*.DS_Store
+
+# Directories
+cmake-build-debug
+.idea
+
+# Executables
+t
